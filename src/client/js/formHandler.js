@@ -6,14 +6,13 @@ function handleSubmit(event) {
     console.log(formText);
     if (Client.checkForName(formText)==true){
         fetch('http://localhost:8081/results',{
-        mode: 'no-cors', // 'cors' by default
-         method: "POST",
-         credentials: "same-origin",
-         headers: {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
             'Content-Type': "application/json",
             'Access-Control-Allow-Origin': '*'
-         },
-         body: JSON.stringify({url:formText})
+        },
+        body: JSON.stringify({url:formText})
      })
     .then(res => res.json())
     .then(function(res) {
